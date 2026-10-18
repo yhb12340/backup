@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>의장대에서 살아남기 — 육군 의장대 신병 가이드북</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>의장대에서 살아남기</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <style>
         :root {
-            /* 육군 의장대 시그니처 컬러 팔레트: 딥그린(메인) + 골드 & 화이트(포인트) */
+            /* 육군 의장대 시그니처 컬러 팔레트 */
             --bg-dark-green: #0c261a;
             --primary-deep: #113826;
             --primary-color: #174932;
@@ -32,9 +32,7 @@
             --subtle-shadow: 0 6px 18px rgba(17, 56, 38, 0.07);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -53,7 +51,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 상단 예식 골드 라인 장식 */
         body::before {
             content: '';
             position: fixed;
@@ -77,7 +74,7 @@
             align-items: center;
         }
 
-        /* --- 메인 히어로 영역 (부대 마크 & 타이틀) --- */
+        /* 메인 히어로 영역 */
         .hero-card {
             width: 100%;
             background: var(--green-hero-gradient);
@@ -94,7 +91,6 @@
             margin-top: 1.5vh;
         }
 
-        /* 예식 흰대각/금장 테두리 모티프 */
         .hero-card::before {
             content: '';
             position: absolute;
@@ -140,7 +136,6 @@
             box-shadow: 0 0 8px var(--accent-bright);
         }
 
-        /* --- 부대 마크 이미지 스타일 --- */
         .mark-container {
             width: 132px;
             height: 140px;
@@ -180,16 +175,13 @@
         .main-title {
             font-size: 2.15rem;
             font-weight: 800;
-            margin: 0 0 8px 0;
+            margin: 0 0 20px 0;
             text-align: center;
             color: var(--pure-white);
             letter-spacing: -0.6px;
             z-index: 1;
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-
-        
 
         .gold-divider {
             width: 72px;
@@ -200,11 +192,23 @@
             z-index: 1;
         }
 
-        
+        .motto-strip {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
 
-        
-
-        /* --- 메인 메뉴 카드 버튼 --- */
+        /* 메인 메뉴 카드 버튼 */
         .menu-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -291,57 +295,9 @@
             border-color: var(--accent-color);
         }
 
-        .menu-btn:hover .menu-btn-icon {
-            background: var(--primary-color);
-            color: var(--accent-bright);
-            border-color: var(--accent-color);
-        }
-
-        /* 홈 하단 퀵 요약 배너 */
-        .home-footer-tip {
-            width: 100%;
-            margin-top: 18px;
-            background: var(--pure-white);
-            border-radius: 18px;
-            padding: 16px 20px;
-            border: 1px solid rgba(23, 73, 50, 0.1);
-            box-shadow: var(--subtle-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            transition: all 0.4s ease;
-        }
-
-        .home-footer-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .home-footer-emblem {
-            width: 36px;
-            height: 38px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .home-footer-text {
-            font-size: 0.86rem;
-            color: var(--text-sub);
-            line-height: 1.45;
-            font-weight: 500;
-        }
-
-        .home-footer-text strong {
-            color: var(--primary-deep);
-            font-weight: 800;
-        }
-
-        /* --- 상세 화면 진입 시 전환 애니메이션 --- */
+        /* 전환 애니메이션 */
         .app-container.state-content-active .hero-card,
-        .app-container.state-content-active .menu-container,
-        .app-container.state-content-active .home-footer-tip {
+        .app-container.state-content-active .menu-container {
             transform: translateY(-30px) scale(0.96);
             opacity: 0;
             pointer-events: none;
@@ -349,7 +305,7 @@
             visibility: hidden;
         }
 
-        /* --- 컨텐츠 컨테이너 --- */
+        /* 컨텐츠 컨테이너 */
         .content-container {
             width: 100%;
             background: var(--pure-white);
@@ -378,7 +334,6 @@
             visibility: visible;
         }
 
-        /* 상세 페이지 상단 헤더 (딥그린 + 골드 + 화이트 포인트) */
         .content-header {
             background: var(--green-hero-gradient);
             padding: 22px 24px 20px;
@@ -390,7 +345,6 @@
             overflow: hidden;
         }
 
-        /* 헤더 배경 워터마크 마크 */
         .header-watermark {
             position: absolute;
             right: 110px;
@@ -407,13 +361,6 @@
             align-items: center;
             gap: 12px;
             z-index: 1;
-        }
-
-        .header-mini-mark {
-            width: 38px;
-            height: 40px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
         }
 
         .content-title-group {
@@ -438,7 +385,6 @@
             letter-spacing: -0.4px;
         }
 
-        .back-btn::before { content: '← '; }
         .back-btn {
             background: rgba(255, 255, 255, 0.12);
             color: var(--pure-white);
@@ -455,6 +401,7 @@
             z-index: 1;
         }
 
+        .back-btn::before { content: '← '; }
         .back-btn:hover {
             background: var(--pure-white);
             color: var(--primary-deep);
@@ -462,496 +409,16 @@
             transform: translateX(-2px);
         }
 
-        /* 섹션 간 빠른 이동 탭 바 */
-        .quick-nav-bar {
-            display: flex;
-            gap: 8px;
-            padding: 12px 24px;
-            background: var(--primary-soft);
-            border-bottom: 1px solid rgba(23, 73, 50, 0.09);
-        }
-
-        .quick-nav-pill {
-            flex: 1;
-            padding: 8px 10px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            background: transparent;
-            color: var(--text-sub);
-            font-size: 0.88rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        .quick-nav-pill:hover {
-            color: var(--primary-deep);
-            background: rgba(255, 255, 255, 0.65);
-        }
-
-        .quick-nav-pill.active {
-            background: var(--pure-white);
-            color: var(--primary-deep);
-            border-color: rgba(212, 175, 55, 0.55);
-            box-shadow: 0 2px 8px rgba(17, 56, 38, 0.08);
-        }
-
         #content-body {
             padding: 24px;
+            min-height: 400px;
         }
 
-        /* --- 검색 및 카테고리 필터 바 (생활편) --- */
-        .filter-toolbar {
-            margin-bottom: 20px;
-            background: var(--primary-tint);
-            border: 1px solid rgba(23, 73, 50, 0.1);
-            border-radius: 16px;
-            padding: 14px;
-        }
-
-        .search-input-wrap {
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 11px 14px 11px 38px;
-            border-radius: 11px;
-            border: 1px solid rgba(23, 73, 50, 0.18);
-            background: var(--pure-white);
-            font-size: 0.92rem;
-            font-family: inherit;
-            color: var(--text-main);
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .search-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(23, 73, 50, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            pointer-events: none;
-        }
-
-        .category-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .cat-chip {
-            border: 1px solid rgba(23, 73, 50, 0.14);
-            background: var(--pure-white);
-            color: var(--text-sub);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .cat-chip:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-deep);
-        }
-
-        .cat-chip.active {
-            background: var(--primary-color);
-            color: var(--pure-white);
-            border-color: var(--primary-color);
-        }
-
-        /* --- 공지/신조 박스 --- */
-        .notice-box {
-            background: linear-gradient(135deg, #133c28 0%, #1b5238 100%);
-            border: 1px solid rgba(212, 175, 55, 0.55);
-            border-left: 5px solid var(--accent-color);
-            padding: 18px 20px;
-            margin-bottom: 22px;
-            border-radius: 14px;
-            font-weight: 700;
-            color: var(--pure-white);
-            line-height: 1.55;
-            font-size: 0.98rem;
-            box-shadow: 0 8px 20px rgba(17, 56, 38, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .notice-box-mark {
-            width: 40px;
-            height: 42px;
-            object-fit: contain;
-            flex-shrink: 0;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
-        }
-
-        .notice-box-text {
-            flex: 1;
-        }
-
-        .notice-box-label {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--accent-bright);
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-
-        /* --- 리스트 및 수칙 카드 스타일 --- */
-        ol.custom-list {
-            list-style: none;
-            counter-reset: item;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        ol.custom-list > li {
-            counter-increment: item;
-            margin: 0;
-            padding: 15px 16px 15px 54px;
-            position: relative;
-            line-height: 1.6;
-            font-size: 0.98rem;
-            color: var(--text-main);
-            background: var(--pure-white);
-            border: 1px solid rgba(23, 73, 50, 0.1);
-            border-radius: 14px;
-            box-shadow: 0 2px 6px rgba(17, 56, 38, 0.03);
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        ol.custom-list > li:hover {
-            transform: translateY(-1px);
-            border-color: rgba(212, 175, 55, 0.55);
-            box-shadow: 0 6px 14px rgba(17, 56, 38, 0.07);
-        }
-
-        ol.custom-list > li::before {
-            content: counter(item, decimal-leading-zero);
-            position: absolute;
-            left: 14px;
-            top: 14px;
-            width: 30px;
-            height: 30px;
-            background: var(--primary-color);
-            color: var(--accent-bright);
-            border: 1px solid rgba(212, 175, 55, 0.55);
-            border-radius: 9px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.82rem;
-            font-weight: 800;
-            box-shadow: 0 2px 6px rgba(23, 73, 50, 0.2);
-        }
-
-        /* 강조 항목 (.highlight) 가독성 및 골드 포인트 개선 */
-        .highlight {
-            color: #7a5600;
-            background: linear-gradient(90deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.1));
-            border-bottom: 2px solid var(--accent-color);
-            padding: 2px 6px;
-            border-radius: 6px;
-            font-weight: 800;
-        }
-
-        ol.custom-list > li.is-highlight-row {
-            background: linear-gradient(135deg, #fffdf6 0%, #fcf6e1 100%);
-            border: 1.5px solid rgba(212, 175, 55, 0.65);
-        }
-
-        ol.custom-list > li.is-highlight-row::before {
-            background: var(--gold-gradient);
-            color: var(--bg-dark-green);
-            border-color: #9e7a18;
-        }
-
-        .empty-filter-msg {
-            display: none;
-            text-align: center;
-            padding: 28px 16px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 600;
-            background: var(--primary-tint);
-            border-radius: 14px;
-            border: 1px dashed rgba(23, 73, 50, 0.2);
-        }
-
-        /* --- 군가편 플레이어 (의장대 테마 + 마크 포인트) --- */
-        .song-selector {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            background: var(--primary-soft);
-            padding: 6px;
-            border-radius: 14px;
-            border: 1px solid rgba(23, 73, 50, 0.1);
-            overflow-x: auto;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .song-selector::-webkit-scrollbar {
-            display: none;
-        }
-
-        .song-tab {
-            flex: 1;
-            min-width: 96px;
-            padding: 11px 10px;
-            border: 1px solid transparent;
-            background: transparent;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-sub);
-            cursor: pointer;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .song-tab:hover {
-            color: var(--primary-deep);
-        }
-
-        .song-tab.active {
-            background: var(--primary-color);
-            color: var(--pure-white);
-            border-color: rgba(212, 175, 55, 0.6);
-            box-shadow: 0 4px 12px rgba(23, 73, 50, 0.25);
-        }
-
-        .music-player-container {
-            background: var(--player-bg);
-            border-radius: 24px;
-            padding: 28px 22px 26px;
-            color: var(--pure-white);
-            box-shadow: 0 22px 45px rgba(7, 22, 14, 0.35);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1.5px solid rgba(212, 175, 55, 0.42);
-        }
-
-        .music-player-container::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: -30%;
-            width: 160%;
-            height: 160%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 58%);
-            pointer-events: none;
-        }
-
-        .player-emblem-badge {
-            width: 58px;
-            height: 62px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .player-emblem-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
-        }
-
-        .song-info {
-            text-align: center;
-            margin-bottom: 16px;
-            width: 100%;
-            z-index: 1;
-        }
-
-        .song-title {
-            font-size: 1.65rem;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -0.5px;
-            color: var(--accent-bright);
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-        }
-
-        .song-artist {
-            font-size: 0.92rem;
-            color: rgba(255, 255, 255, 0.72);
-            margin-top: 5px;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-        }
-
-        .lyrics-helper-tip {
-            font-size: 0.76rem;
-            color: rgba(243, 212, 107, 0.85);
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 4px 12px;
-            border-radius: 999px;
-            margin-bottom: 8px;
-            z-index: 1;
-        }
-
-        .lyrics-container {
-            width: 100%;
-            height: 270px;
-            overflow-y: auto;
-            text-align: center;
-            margin: 6px 0 22px 0;
-            padding: 24px 8px;
-            scroll-behavior: smooth;
-            mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
-            -webkit-mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
-            z-index: 1;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .lyrics-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .lyric-line {
-            font-size: 1.04rem;
-            font-weight: 600;
-            margin: 18px 0;
-            color: rgba(255, 255, 255, 0.42);
-            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-            cursor: pointer;
-            line-height: 1.55;
-            padding: 6px 12px;
-            border-radius: 10px;
-        }
-
-        .lyric-line:hover {
-            color: rgba(255, 255, 255, 0.78);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .lyric-line.active {
-            font-size: 1.32rem;
-            font-weight: 800;
-            color: var(--pure-white);
-            transform: scale(1.02);
-            text-shadow: 0 2px 14px rgba(212, 175, 55, 0.45);
-            background: rgba(212, 175, 55, 0.12);
-            border: 1px solid rgba(212, 175, 55, 0.28);
-        }
-
-        .player-controls {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1;
-        }
-
-        .progress-container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 18px;
-        }
-
-        .progress-bar-bg {
-            flex: 1;
-            height: 7px;
-            background-color: rgba(255, 255, 255, 0.14);
-            border-radius: 999px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .progress-bar-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: var(--gold-gradient);
-            border-radius: 999px;
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        .progress-bar-fill::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: var(--pure-white);
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.9);
-        }
-
-        .play-btn {
-            background: var(--gold-gradient);
-            border: 2px solid var(--pure-white);
-            color: var(--bg-dark-green);
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            font-size: 1.65rem;
-            font-weight: 900;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .play-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45);
-        }
-
-        .play-btn:active {
-            transform: scale(0.94);
-        }
-
+        /* 모바일 최적화 반응형 */
         @media (max-width: 600px) {
-            .app-container {
-                padding: 18px 14px 36px;
-            }
-            .hero-card {
-                padding: 28px 18px 24px;
-            }
-            .main-title {
-                font-size: 1.8rem;
-            }
+            .app-container { padding: 18px 14px 36px; }
+            .hero-card { padding: 28px 18px 24px; }
+            .main-title { font-size: 1.8rem; }
             .menu-container {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -963,62 +430,18 @@
                 padding: 16px 18px;
                 gap: 14px;
             }
-            .menu-btn-text-wrap {
-                flex: 1;
-            }
-            .menu-btn-count {
-                margin-top: 0;
-            }
-            .content-header {
-                padding: 18px 18px 16px;
-            }
-            #content-body {
-                padding: 18px 16px;
-            }
-            .quick-nav-bar {
-                padding: 10px 16px;
-            }
+            .menu-btn-text-wrap { flex: 1; }
+            .menu-btn-count { margin-top: 0; }
+            .content-header { padding: 18px 18px 16px; }
+            #content-body { padding: 18px 16px; }
         }
-    
-        .motto-strip {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 14px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--pure-white);
-            font-size: 0.9rem;
-            font-weight: 600;
-            z-index: 1;
-        }
-
     </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute;pointer-events:none;" aria-hidden="true">
-    <defs>
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#bf953f" />
-            <stop offset="50%" stop-color="#fcf6ba" />
-            <stop offset="100%" stop-color="#aa771c" />
-        </linearGradient>
-        <linearGradient id="shieldBg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#2a5a41" />
-            <stop offset="100%" stop-color="#143323" />
-        </linearGradient>
-        <filter id="shadow">
-            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
-        </filter>
-    </defs>
-</svg>
 <div class="app-container" id="app">
 
-    <!-- 상단 메인 히어로 카드 (육군 의장대 마크 + 타이틀) -->
+    <!-- 상단 메인 히어로 카드 -->
     <div class="hero-card">
         <div class="unit-pill">
             <span class="unit-pill-dot"></span>
@@ -1027,20 +450,19 @@
 
         <div class="mark-container">
             <div class="mark-glow"></div>
-            <img class="mark-img" src="mark.png" alt="대한민국 육군 의장대 마크" />
+            <!-- 마크 이미지를 별도 파일로 연결할 수 있도록 수정 -->
+            <img class="mark-img" src="Code_Generated_Image.png" alt="대한민국 육군 의장대 마크" onerror="this.style.display='none'" />
         </div>
 
         <h1 class="main-title">의장대에서 살아남기</h1>
-        
         <div class="gold-divider"></div>
+
         <div class="motto-strip">
             <span>의식은 전투처럼 · 훈련은 실전같이</span>
         </div>
-
-        
     </div>
 
-    <!-- 3대 핵심 메뉴 -->
+    <!-- 메인 메뉴 카드 버튼 -->
     <div class="menu-container">
         <button class="menu-btn" onclick="openContent('life')">
             <div class="menu-btn-icon">
@@ -1085,552 +507,71 @@
         </button>
     </div>
 
-    <!-- 하단 안내 배너 -->
-        </div>
-    </div>
-
-    <!-- 상세 컨텐츠 영역 -->
+    <!-- 상세 컨텐츠 컨테이너 -->
     <div class="content-container">
         <div class="content-header">
-            <img class="header-watermark" src="watermark.png" />
+            <!-- 워터마크 이미지를 별도 파일로 연결할 수 있도록 수정 -->
+            <img class="header-watermark" src="waterCode_Generated_Image.png" alt="워터마크" onerror="this.style.display='none'" />
             <div class="content-header-left">
-                <img class="header-mini-mark" src="mark.png" />
                 <div class="content-title-group">
-                    <span class="content-eyebrow">ROKA HONOR GUARD GUIDE</span>
-                    <h2 class="content-title" id="content-title"></h2>
+                    <span class="content-eyebrow" id="detail-eyebrow">가이드북</span>
+                    <h2 class="content-title" id="detail-title">메뉴를 선택하세요</h2>
                 </div>
             </div>
             <button class="back-btn" onclick="closeContent()">돌아가기</button>
         </div>
-
-        <div class="quick-nav-bar">
-            <button class="quick-nav-pill" id="nav-pill-life" onclick="openContent('life')">생활편</button>
-            <button class="quick-nav-pill" id="nav-pill-training" onclick="openContent('training')">행사/훈련편</button>
-            <button class="quick-nav-pill" id="nav-pill-song" onclick="openContent('song')">군가편</button>
+        
+        <div id="content-body">
+            <!-- 자바스크립트를 통해 내용이 동적으로 들어가는 공간입니다. -->
         </div>
-
-        <div id="content-body"></div>
     </div>
+
 </div>
 
-<audio id="audio-player"></audio>
-
+<!-- 페이지 동작 처리를 위한 필수 자바스크립트 -->
 <script>
-    const EMBLEM_SRC = "mark.png";
-
-    const songContentHTML = `
-        <div class="song-selector" id="song-selector">
-            <button class="song-tab active" onclick="selectSong(0)">군조가</button>
-            <button class="song-tab" onclick="selectSong(1)">의장대가</button>
-            <button class="song-tab" onclick="selectSong(2)">계룡산 호랑이</button>
-        </div>
-
-        <div class="music-player-container">
-            <div class="player-emblem-badge">
-                <img src="${EMBLEM_SRC}" alt="육군 의장대 마크" />
-            </div>
-
-            <div class="song-info">
-                <h3 class="song-title" id="song-title">군조가</h3>
-                <div class="song-artist" id="song-artist">의장대군가</div>
-            </div>
-
-            <div class="lyrics-helper-tip">가사를 누르면 해당 구간으로 바로 이동합니다</div>
-            
-            <div class="lyrics-container" id="lyrics-container">
-                <!-- 가사가 여기에 동적으로 추가됩니다 -->
-            </div>
-            
-            <div class="player-controls">
-                <div class="progress-container">
-                    <span id="current-time">0:00</span>
-                    <div class="progress-bar-bg" id="progress-bar-bg" onclick="seekSong(event)">
-                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
-                    </div>
-                    <span id="total-time">0:00</span>
-                </div>
-                
-                <button class="play-btn" id="play-btn" onclick="togglePlay()">&#9654;</button>
-            </div>
-        </div>
-    `;
-
-    const contentData = {
+    // 각 탭별 컨텐츠 데이터를 관리합니다.
+    const pageData = {
         life: {
+            eyebrow: "가이드북",
             title: "생활편",
-            html: `
-                <div class="filter-toolbar">
-                    <div class="search-input-wrap">
-                        <span class="search-icon">&#128269;</span>
-                        <input
-                            type="text"
-                            class="search-input"
-                            id="life-search-input"
-                            placeholder="수칙 키워드 검색 (예: 관물대, 행사복, 점호, 외출...)"
-                            oninput="filterLifeRules()"
-                        />
-                    </div>
-                    <div class="category-chips">
-                        <button class="cat-chip active" data-cat="all" onclick="selectLifeCategory('all')">전체 (31)</button>
-                        <button class="cat-chip" data-cat="locker" onclick="selectLifeCategory('locker')">관물대·복장</button>
-                        <button class="cat-chip" data-cat="daily" onclick="selectLifeCategory('daily')">일과·예절</button>
-                        <button class="cat-chip" data-cat="dorm" onclick="selectLifeCategory('dorm')">생활관·점호</button>
-                        <button class="cat-chip" data-cat="leave" onclick="selectLifeCategory('leave')">출타·보고 ★</button>
-                    </div>
-                </div>
-                <ol class="custom-list" id="life-rule-list">
-                    <li data-cat="daily">일과시간 중 취식 자제 (음료 및 다과는 점심시간이나 개인정비 시간 활용)</li>
-                    <li data-cat="daily">PX, 자판기, 체력단련실은 자유롭게 이용 가능</li>
-                    <li data-cat="dorm">세탁방은 자유롭게 이용하되, 인원 대비 기기가 부족하므로 세탁 및 건조 완료 시 신속히 비워주기</li>
-                    <li data-cat="locker">관물대 모자 정리: 가장 좌측에 비치하며 챙이 입구를 향하도록 정렬 (아래부터: 디모 / 기타 모자 / ROKA모 / 베레모 순)</li>
-                    <li data-cat="locker">관물대 대각 정리: 가장 우측에 일자(I) 대각 비치 (아래부터: 훈련용 흰대각 / 행사용 흰대각 / 갈색 대각 순)</li>
-                    <li data-cat="locker">관물대 뒤쪽 여유 공간에 수통과 X대각을 단정하게 정리하여 비치</li>
-                    <li data-cat="locker">의류는 좌측부터 패딩, 방상외피, 방한복 상의 내피(깔깔이), 플리스, 전투복 순으로 좌수걸이하여 보관</li>
-                    <li data-cat="dorm">취식물 보관: 음료는 쇼케이스, 기타 식품은 출타 가방에 보관</li>
-                    <li data-cat="locker">행사복 관리: 샤워 바구니 걸이를 활용해 행사복 걸이를 만들고, 행사 종료 시 행사복은 피복실에 반납 및 걸이 원위치</li>
-                    <li data-cat="dorm">침상 위와 개인 자리는 항상 청결하고 단정하게 유지 (사용한 자리 즉시 정돈)</li>
-                    <li data-cat="dorm">생활관 최종 퇴실 시 소등 및 출입문 닫기 철저</li>
-                    <li data-cat="daily">방송 전파사항 수신을 위해 이어폰은 한쪽만 착용하거나 적절한 볼륨 유지</li>
-                    <li data-cat="daily">간부님들 마주치면 선두만 경례</li>
-                    <li data-cat="daily">식사 등 부대 내 이동 시 분대 건제 유지</li>
-                    <li data-cat="daily">식사 및 일과 등 집합 시간 엄수 (집합 3분 전 도착)</li>
-                    <li data-cat="daily">식사 전 손 씻기 (식중독 예방) </li>
-                    <li data-cat="daily">일과 및 체력단련 시간에 침상에 눕거나 TV 시청 금지</li>
-                    <li data-cat="daily">국기 상하기(국기에 대한 경례) 음악 송출 시, 제자리에 멈춰 서기</li>
-                    <li data-cat="daily">급식으로 제공된 유제품은 식당에서 취식 권장 (쇼케이스 보관 지양)</li>
-                    <li data-cat="dorm">라면국물 세면대에 절대 버리지 않기. 변기에 버리기</li>
-                    <li data-cat="dorm">화장실 쓰레기통에 다른 쓰레기 버리지 않기</li>
-                    <li data-cat="dorm">가급적 8시 이전까지 샤워 권장 (8시 이후부터 진계함 및 임무분담제)</li>
-                    <li data-cat="dorm">점호 대기 중 정숙 유지</li>
-                    <li data-cat="dorm">점호 완료 방송 전까지는 점호 상태 유지</li>
-                    <li data-cat="dorm">연등 시 종료 시각을 정확히 기재하고, 최종 퇴실자는 소등 및 냉·난방기 전원 차단</li>
-                    <li data-cat="dorm">싸지방 연등은 중대장님 승인 하에 이용 가능</li>
-                    <li data-cat="locker">혼복 착용 지양</li>
-                    <li data-cat="leave" class="is-highlight-row"><span class="highlight">외출 및 외박 신청은 가급적 2주 전, 늦어도 1주 전까지 반드시 완료할 것!</span></li>
-                    <li data-cat="leave">출타 복귀 시 시간적 여유를 두고 복귀 (구매한 물품은 편의점 봉투 대신 개인 가방에 넣어 복귀 권장)</li>
-                    <li data-cat="leave">외출/외박 일정 변경 시 사전에 행정병에게 통보</li>
-                    <li data-cat="leave" class="is-highlight-row"><span class="highlight">근무 변경 시 반드시 소대장님께 사전 보고 후 조치할 것!</span></li>
-                </ol>
-                <div class="empty-filter-msg" id="life-empty-msg">검색 조건에 맞는 생활 수칙이 없습니다.</div>
-            `
+            content: "<h3>기본 생활 수칙</h3><p>관물대 정리, 기본 복장, 일과 및 점호에 대한 상세 내용이 여기에 들어갑니다.</p>"
         },
         training: {
+            eyebrow: "가이드북",
             title: "행사/훈련편",
-            html: `
-                <div class="notice-box">
-                    <img class="notice-box-mark" src="${EMBLEM_SRC}" alt="의장대 마크" />
-                    <div class="notice-box-text">
-                        <div class="notice-box-label">HONOR GUARD PLEDGE</div>
-                        <div>대한민국 육군을 대표하는 부대로서, 행사 중에는 항상 품위를 유지할 것!</div>
-                    </div>
-                </div>
-                <ol class="custom-list">
-                    <li class="is-highlight-row"><span class="highlight">총기함 및 대검 시건 철저히 하기</span></li>
-                    <li class="is-highlight-row"><span class="highlight">현황판 최신화 철저히 하기</span></li>
-                    <li>팔을 풀 때 조교에게 사전 보고 후 전투복을 입거나 벗기</li>
-                    <li>복장 및 마스크 매무새 정비가 필요할 때도 조교에게 보고 후, 뒤로 돌아선 상태에서 신속히 정비</li>
-                    <li class="is-highlight-row"><span class="highlight">행사복 하의는 반드시 분대장에게 사전 검사 받기</span> (빠를수록 좋으며, 최소 행사 5일 전까지 완료 권장)</li>
-                    <li>행사 이틀 전까지 두발 정리 완료 (이발실 사용 후 뒷정리 철저)</li>
-                    <li>행사 당일 차량 이동 시 좌석 등받이에 등 기대지 않기 (땀 등 이물질로 인한 행사복 오염 방지)</li>
-                    <li>버스 탑승 시 안전사고 예방을 위해 역착검 상태 유지</li>
-                    <li>행사장 도착 후 이동 시에는 구령에 맞춰 오와 열을 맞추어 행진</li>
-                    <li>행사 중 애국가 및 군가 제창 시에는 크고 패기 있는 목소리로 부르기</li>
-                    <li>행사장 내에서 개인 행동 및 무단 이탈 절대 금지</li>
-                    <li>국기에 대한 경례 시 '충성' 구호 생략 (무음 경례)</li>
-                </ol>
-            `
+            content: "<h3>훈련 및 행사 지침</h3><p>총기 손질, 행사복 착용, 제식 훈련 및 행진에 대한 상세 내용이 여기에 들어갑니다.</p>"
         },
         song: {
+            eyebrow: "가이드북",
             title: "군가편",
-            html: songContentHTML
+            content: "<h3>의장대 필수 군가</h3><p>의장대에서 주로 부르는 3대 군가 가사와 음원 싱크 기능이 이곳에 구현됩니다.</p>"
         }
     };
 
-    const songs = [
-        {
-            title: "군조가",
-            artist: "의장대군가",
-            src: "song3.m4a",
-            fallbackDuration: 68,
-            lyrics: [
-                { time: 0, text: "반짝이는 백철모-에 / 명예를 걸고요" },
-                { time: 7, text: "(붐빠붐빠 붐빠붐빠) 행진 속에 / 청춘은 갑니다" },
-                { time: 15, text: "처-녀 열아홉살 / 아름다운 꿈 속에는" },
-                { time: 21, text: "(라이라이라이라이 차-차차)" },
-                { time: 26, text: "(라이라이라이라이 차-차차)" },
-                { time: 29, text: "돌아가는 엠모 원-에 / 멋쟁이 용사들" },
-                { time: 37, text: "당신만이 그리워-서 / 생각을 합니다" },
-                { time: 44, text: "오 늘은 어딜가서 행 사를 하고" },
-                { time: 48, text: "내 일은 어딜가서 파 티를 하나" },
-                { time: 52, text: "우리들은 서이너이 아 나 갓 아나갓 의장대 용사들 신사들 사자들 호랑이" },
-                { time: 60, text: "멋지구나 부기" },
-                { time: 62, text: "노래하며 춤을추자 립빠빠 립빠 립빠" }
-            ]
-        },
-        {
-            title: "의장대가",
-            artist: "의장대군가",
-            src: "song1.m4a",
-            fallbackDuration: 126,
-            lyrics: [
-                { time: 0, text: "찬란한 전통과 빛을 이-을(헤이)" },
-                { time: 5, text: "나는대한 건-아" },
-                { time: 8, text: "충-무화랑 넋을 이을 의장대 용사" },
-                { time: 16, text: "자-유평-화 수호할 명예의 기사" },
-                { time: 23, text: "오-늘도 명예속에 살-아나간다" },
-                { time: 30, text: "나-는대-한 아나갓 자-랑스-런 아나갓" },
-                { time: 37, text: "영 원히 빛낼- 의 장 대" },
-                { time: 45, text: "랄라라 랄라라 랄랄 라라(헤이)" },
-                { time: 49, text: "라라라라 라 라" },
-                { time: 52, text: "라-라라라 랄랄라라 랄랄라라라" },
-                { time: 59, text: "나-는대-한 아나갓 자-랑스-런 아나갓" },
-                { time: 65, text: "영 원히 빛낼- 의 장 대" },
-                { time: 70, text: "반짝이는 백철모에 명예를 걸고요 뿜빠뿜빠 뿜빠뿜빠" },
-                { time: 75, text: "행진 속에 청춘은 갑니다" },
-                { time: 79, text: "처녀 열아홉살 아름다운 꿈 속에는 라이라이라이라이 차차차 라이라이라이라이 차차차" },
-                { time: 88, text: "돌아가는 엠모원에 멋쟁이 용사들" },
-                { time: 94, text: "당신만이 그리워서 생각을 합니다" },
-                { time: 101, text: "오늘은 어딜가서 행사를 하고 내일은 어딜가서 파티를 하나" },
-                { time: 109, text: "우리들은 서이 너이 아나갓 아나갓 의장대 용사들 신사들 사자들 호랑이" },
-                { time: 119, text: "멋지구나 부기 노래하며 춤을추자 립빠빠 립빠 립빠" }
-            ]
-        },
-        {
-            title: "계룡산 호랑이",
-            artist: "의장대군가",
-            src: "song2.m4a",
-            fallbackDuration: 58,
-            lyrics: [
-                { time: 0, text: "계룡산 정기뻗어 여기에 맺히고" },
-                { time: 8, text: "백-두화랑 정통받은 대한육군 의장대" },
-                { time: 15, text: "작-렬하는 태양속에 빛나는 호랑이마크" },
-                { time: 23, text: "반-짝이는 행사모에 모든걸 걸었다" },
-                { time: 30, text: "(야성) 야성 (패기) 패기" },
-                { time: 34, text: "(헤이) 펄펄끓는 눈동자" },
-                { time: 37, text: "행사에 목숨걸고 명예에 죽고사는" },
-                { time: 41, text: "육 (군) 의 (장) 대" },
-                { time: 45, text: "의식은 전투처럼 훈련은 실전같이" },
-                { time: 49, text: "육 (육) 군 (군) 의 (의) 장 (장) 대 (대)" },
-                { time: 52, text: "의장대" }
-            ]
+    // 메뉴 버튼 클릭 시 상세 화면을 여는 함수
+    function openContent(type) {
+        const app = document.getElementById('app');
+        const titleEl = document.getElementById('detail-title');
+        const eyebrowEl = document.getElementById('detail-eyebrow');
+        const bodyEl = document.getElementById('content-body');
+        
+        if (pageData[type]) {
+            titleEl.textContent = pageData[type].title;
+            eyebrowEl.textContent = pageData[type].eyebrow;
+            bodyEl.innerHTML = pageData[type].content;
         }
-    ];
 
-    let currentSongIndex = 0;
-    let isPlaying = false;
-    let audioPlayer = document.getElementById('audio-player');
-    let fallbackTimer = null;
-    let simulatedTime = 0;
-    let usingFallbackTimer = false;
-    let currentLifeCategory = 'all';
-
-    const app = document.getElementById('app');
-    const contentTitle = document.getElementById('content-title');
-    const contentBody = document.getElementById('content-body');
-
-    function openContent(section) {
-        contentTitle.innerText = contentData[section].title;
-        contentBody.innerHTML = contentData[section].html;
+        // 화면 전환 CSS 클래스 추가
         app.classList.add('state-content-active');
-
-        ['life', 'training', 'song'].forEach((key) => {
-            const pill = document.getElementById('nav-pill-' + key);
-            if (pill) {
-                if (key === section) {
-                    pill.classList.add('active');
-                } else {
-                    pill.classList.remove('active');
-                }
-            }
-        });
-
-        currentLifeCategory = 'all';
-
-        if (section === 'song') {
-            initPlayer();
-        } else {
-            resetPlayer();
-        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // 돌아가기 버튼 클릭 시 메인 화면으로 복귀하는 함수
     function closeContent() {
+        const app = document.getElementById('app');
         app.classList.remove('state-content-active');
-        resetPlayer();
-    }
-
-    function selectLifeCategory(category) {
-        currentLifeCategory = category;
-        const chips = document.querySelectorAll('.cat-chip');
-        chips.forEach((chip) => {
-            if (chip.getAttribute('data-cat') === category) {
-                chip.classList.add('active');
-            } else {
-                chip.classList.remove('active');
-            }
-        });
-        filterLifeRules();
-    }
-
-    function filterLifeRules() {
-        const searchEl = document.getElementById('life-search-input');
-        const listEl = document.getElementById('life-rule-list');
-        const emptyEl = document.getElementById('life-empty-msg');
-        if (!listEl) return;
-
-        const query = searchEl ? searchEl.value.trim().toLowerCase() : '';
-        const items = listEl.querySelectorAll('li');
-        let visibleCount = 0;
-
-        items.forEach((li) => {
-            const cat = li.getAttribute('data-cat') || '';
-            const text = li.innerText.toLowerCase();
-            const catMatch = (currentLifeCategory === 'all') || (cat === currentLifeCategory);
-            const textMatch = !query || text.includes(query);
-
-            if (catMatch && textMatch) {
-                li.style.display = '';
-                visibleCount++;
-            } else {
-                li.style.display = 'none';
-            }
-        });
-
-        if (emptyEl) {
-            emptyEl.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-    }
-
-    function stopFallbackTimer() {
-        if (fallbackTimer) {
-            clearInterval(fallbackTimer);
-            fallbackTimer = null;
-        }
-    }
-
-    function startFallbackTimer() {
-        stopFallbackTimer();
-        usingFallbackTimer = true;
-        const song = songs[currentSongIndex];
-        const totalEl = document.getElementById('total-time');
-        if (totalEl) {
-            totalEl.innerText = formatTime(song.fallbackDuration);
-        }
-        fallbackTimer = setInterval(() => {
-            simulatedTime += 0.25;
-            if (simulatedTime >= song.fallbackDuration) {
-                resetPlayerUI();
-                return;
-            }
-            renderProgressAndLyrics(simulatedTime, song.fallbackDuration);
-        }, 250);
-    }
-
-    function initPlayer() {
-        audioPlayer = document.getElementById('audio-player');
-
-        audioPlayer.removeEventListener('timeupdate', updateProgress);
-        audioPlayer.addEventListener('timeupdate', updateProgress);
-        audioPlayer.onloadedmetadata = () => {
-            usingFallbackTimer = false;
-            const totalEl = document.getElementById('total-time');
-            if (totalEl) {
-                totalEl.innerText = formatTime(audioPlayer.duration);
-            }
-        };
-        audioPlayer.onended = () => {
-            resetPlayerUI();
-        };
-
-        loadSong(currentSongIndex);
-        updateTabsUI();
-    }
-
-    function selectSong(index) {
-        if (currentSongIndex === index) return;
-        stopFallbackTimer();
-        simulatedTime = 0;
-        currentSongIndex = index;
-        loadSong(index);
-        updateTabsUI();
-
-        const playBtn = document.getElementById('play-btn');
-        audioPlayer.play().then(() => {
-            usingFallbackTimer = false;
-            isPlaying = true;
-            if (playBtn) playBtn.innerHTML = '&#10074;&#10074;';
-        }).catch(() => {
-            isPlaying = true;
-            if (playBtn) playBtn.innerHTML = '&#10074;&#10074;';
-            startFallbackTimer();
-        });
-    }
-
-    function updateTabsUI() {
-        const tabs = document.querySelectorAll('.song-tab');
-        tabs.forEach((tab, i) => {
-            if (i === currentSongIndex) {
-                tab.classList.add('active');
-            } else {
-                tab.classList.remove('active');
-            }
-        });
-    }
-
-    function loadSong(index) {
-        const song = songs[index];
-        const titleEl = document.getElementById('song-title');
-        const artistEl = document.getElementById('song-artist');
-        const totalEl = document.getElementById('total-time');
-
-        if (titleEl) titleEl.innerText = song.title;
-        if (artistEl) artistEl.innerText = song.artist;
-        if (totalEl) totalEl.innerText = formatTime(song.fallbackDuration);
-
-        simulatedTime = 0;
-        audioPlayer.src = song.src;
-        audioPlayer.load();
-
-        const lyricsContainer = document.getElementById('lyrics-container');
-        if (lyricsContainer) {
-            lyricsContainer.innerHTML = '';
-            song.lyrics.forEach((line, idx) => {
-                const el = document.createElement('div');
-                el.className = 'lyric-line' + (idx === 0 ? ' active' : '');
-                el.innerText = line.text;
-                el.onclick = () => jumpToTime(line.time);
-                lyricsContainer.appendChild(el);
-            });
-        }
-
-        const currentEl = document.getElementById('current-time');
-        const fillEl = document.getElementById('progress-bar-fill');
-        const playBtn = document.getElementById('play-btn');
-
-        if (currentEl) currentEl.innerText = "0:00";
-        if (fillEl) fillEl.style.width = '0%';
-        if (playBtn) {
-            playBtn.innerHTML = isPlaying ? '&#10074;&#10074;' : '&#9654;';
-        }
-    }
-
-    function togglePlay() {
-        const btn = document.getElementById('play-btn');
-        if (!isPlaying) {
-            audioPlayer.play().then(() => {
-                usingFallbackTimer = false;
-                isPlaying = true;
-                if (btn) btn.innerHTML = '&#10074;&#10074;';
-            }).catch(() => {
-                isPlaying = true;
-                if (btn) btn.innerHTML = '&#10074;&#10074;';
-                startFallbackTimer();
-            });
-        } else {
-            audioPlayer.pause();
-            stopFallbackTimer();
-            isPlaying = false;
-            if (btn) btn.innerHTML = '&#9654;';
-        }
-    }
-
-    function resetPlayer() {
-        stopFallbackTimer();
-        if (audioPlayer) {
-            audioPlayer.pause();
-            audioPlayer.currentTime = 0;
-        }
-        simulatedTime = 0;
-        isPlaying = false;
-        currentSongIndex = 0;
-    }
-
-    function resetPlayerUI() {
-        stopFallbackTimer();
-        isPlaying = false;
-        simulatedTime = 0;
-        const playBtn = document.getElementById('play-btn');
-        const fillEl = document.getElementById('progress-bar-fill');
-        const currentEl = document.getElementById('current-time');
-        if (playBtn) playBtn.innerHTML = '&#9654;';
-        if (audioPlayer) audioPlayer.currentTime = 0;
-        if (fillEl) fillEl.style.width = '0%';
-        if (currentEl) currentEl.innerText = "0:00";
-    }
-
-    function updateProgress() {
-        if (usingFallbackTimer || !audioPlayer.duration) return;
-        renderProgressAndLyrics(audioPlayer.currentTime, audioPlayer.duration);
-    }
-
-    function renderProgressAndLyrics(currentTime, duration) {
-        if (!duration) return;
-        const pct = Math.min(100, (currentTime / duration) * 100);
-        const fillEl = document.getElementById('progress-bar-fill');
-        const currentEl = document.getElementById('current-time');
-
-        if (fillEl) fillEl.style.width = pct + '%';
-        if (currentEl) currentEl.innerText = formatTime(Math.floor(currentTime));
-
-        const song = songs[currentSongIndex];
-        const lines = document.querySelectorAll('.lyric-line');
-        let activeIndex = -1;
-
-        for (let i = 0; i < song.lyrics.length; i++) {
-            if (currentTime >= song.lyrics[i].time) {
-                activeIndex = i;
-            }
-        }
-
-        lines.forEach((line, index) => {
-            if (index === activeIndex) {
-                if (!line.classList.contains('active')) {
-                    line.classList.add('active');
-                    line.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            } else {
-                line.classList.remove('active');
-            }
-        });
-    }
-
-    function formatTime(seconds) {
-        if (isNaN(seconds)) return "0:00";
-        const m = Math.floor(seconds / 60);
-        const s = Math.floor(seconds % 60);
-        return m + ":" + (s < 10 ? '0' : '') + s;
-    }
-
-    function jumpToTime(time) {
-        const song = songs[currentSongIndex];
-        simulatedTime = time;
-        if (!usingFallbackTimer && audioPlayer.duration) {
-            audioPlayer.currentTime = time;
-            renderProgressAndLyrics(time, audioPlayer.duration);
-        } else {
-            renderProgressAndLyrics(time, song.fallbackDuration);
-        }
-        if (!isPlaying) togglePlay();
-    }
-
-    function seekSong(event) {
-        const bg = document.getElementById('progress-bar-bg');
-        if (!bg) return;
-        const rect = bg.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const width = rect.width;
-        const pct = Math.max(0, Math.min(1, clickX / width));
-        const song = songs[currentSongIndex];
-
-        if (!usingFallbackTimer && audioPlayer.duration) {
-            audioPlayer.currentTime = pct * audioPlayer.duration;
-            renderProgressAndLyrics(audioPlayer.currentTime, audioPlayer.duration);
-        } else {
-            simulatedTime = pct * song.fallbackDuration;
-            renderProgressAndLyrics(simulatedTime, song.fallbackDuration);
-        }
     }
 </script>
-
 </body>
 </html>
